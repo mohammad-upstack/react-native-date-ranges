@@ -30,7 +30,7 @@ export default class ComposePicker extends Component {
     this.state = {
       modalVisible: false,
       allowPointerEvents: true,
-      showContent: true,
+      showContent: props.startDate,
       selected: `${props.startDate} ${props.dateSplitter} ${props.endDate}`,
       startDate: new Date(props.startDate),
       endDate: new Date(props.endDate),
