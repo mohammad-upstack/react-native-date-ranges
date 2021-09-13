@@ -27,14 +27,15 @@ const styles = {
 export default class ComposePicker extends Component {
   constructor(props) {
     super(props);
+    console.warn(props.startDate)
     this.state = {
       modalVisible: false,
       allowPointerEvents: true,
       showContent: props.startDate,
       selected: `${props.startDate} ${props.dateSplitter} ${props.endDate}`,
-      startDate: '',
-      endDate: '',
-      date: new Date(),
+      startDate: props.startDate ? moment(props.startDate) : '',
+      endDate: props.endDate ? moment(props.endDate) : '',
+      date: moment(),
       focus: 'startDate',
       currentDate: moment(),
       textStartDate: 'Start Date',
@@ -217,4 +218,4 @@ ComposePicker.propTypes = {
   dateSplitter: PropTypes.string
 };
 
-ComposePicker.defaultProps = { dateSplitter: '->' };
+ComposePicker.defaultProps = { dateSplitter: '-' };
